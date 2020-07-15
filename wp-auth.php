@@ -14,8 +14,8 @@ class WP_Basic_Auth{
 
 	public function __construct(){
 		/*Basic Authentication plugin code*/
-		add_filter( 'determine_current_user', 'virtune_json_basic_auth_handler', 20 );
-		add_filter( 'rest_authentication_errors', 'virtune_json_basic_auth_error' );
+		add_filter( 'determine_current_user', [ $this,'virtune_json_basic_auth_handler' ], 20 );
+		add_filter( 'rest_authentication_errors', [ $this,'virtune_json_basic_auth_error']);
 	}
 
 	/** Basic Auth Check method*/
@@ -73,5 +73,5 @@ class WP_Basic_Auth{
 	}
 
 }
+new WP_Basic_Auth();
 
-// new WP_Basic_Auth();
